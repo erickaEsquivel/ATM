@@ -3,7 +3,7 @@ Just another repository
 
 Bueno esto es un pequeño intento en GitHub para 
 entender un poco cómo funciona :)
--------------------
+---------------------------------------
 /*Comienzo la idea#1 =Juan Arce */
     package proyecto$ ;
 /* Autores Grupo A */
@@ -12,25 +12,25 @@ entender un poco cómo funciona :)
      public static void main(String[] args) {
         /* Se comienza el codigo base. Y se les desea una buena experiencia*/
         
-        /*Clase01: Se aplica lo visto en determinada clase*/
-        Scanner input = new Scanner(System.in);
-        int op;
+        /*Clase01: Se aplica lo visto en determinada clase*/       [Se aplica Scanner(System.in)]
+        Scanner input = new Scanner(System.in);                    [
+        int op;                                                    [
         
-        String Cuenta;
-        String Nombre;
-        int Saldo_Inicial;
-        String NIP;
+        String Cuenta;                                             [Variable 1]
+        String Nombre;                                             [Variable 2]
+        int Saldo_Inicial;                                         [Variable 3]
+        String PIN;                                                [Variable 4]
                 
         Cuenta obj= new Cuenta();
         
-        do{    
+        do{                                                        [Se aplica dp{ para: por ejecutar un menu de opciones]
         limpiar(10);
         System.out.println("*** MENU ***\n");
-        System.out.println("1.- Crear Cuenta ");
-        System.out.println("2.- Abonar ");
-        System.out.println("3.- Retirar ");        
-        System.out.println("4.- Consultar ");        
-        System.out.println("5.- Salir ");
+        System.out.println("1.- Crear Cuenta ");                   [Opcion 1]
+        System.out.println("2.- Abonar ");                         [Opcion 2]
+        System.out.println("3.- Retirar ");                        [Opcion 3]
+        System.out.println("4.- Consultar ");                      [Opcion 4]
+        System.out.println("5.- Salir ");                          [Opcion 5]
         
         /*Clase02: Se aplica lo visto en la Clase 2*/
         
@@ -38,7 +38,7 @@ entender un poco cómo funciona :)
         op = input.nextInt();
         input.nextLine(); 
         
-        switch (op) {
+        switch (op) {                                   [Caso 1: El usuario no posee cuenta y quiere crear una]
             case 1:                
                 System.out.print("Ingrese el Número de cuenta a Crear:  ");
                 Cuenta = input.nextLine();
@@ -50,10 +50,10 @@ entender un poco cómo funciona :)
                 Saldo_Inicial = input.nextInt();
                 /*Se aplica el Saldo Inicial*/
                 input.nextLine();//Limpiar el buffer 
-                System.out.print("Ingrese el NIP:  ");
+                System.out.print("Ingrese el PIN:  ");
                 NIP = input.nextLine();
-                /*Se aplica la Variable NIP*/                                
-                obj.Crear(Cuenta, Nombre, Saldo_Inicial, NIP);
+                /*Se aplica la Variable PIN*/                                
+                obj.Crear(Cuenta, Nombre, Saldo_Inicial, PIN);
                 
         /*Clase03: Se apica lo visto en la Clase 3.*/ 
         /*Se impletara if/else/while*/
@@ -67,14 +67,14 @@ entender un poco cómo funciona :)
                     System.out.print(" Ingrese el numero Secreto:  ");
                     NIP = input.nextLine();   
 
-                    if (obj.Validar(Cuenta, NIP)) {
+                    if (obj.Validar(Cuenta, PIN)) {
                         System.out.print("Ingrese el monto a depositar: ");
                         int deposito = input.nextInt();
                         obj.Abonar(Cuenta, deposito);                                                  
                     }               
                     else
                         System.out.print("\nNúmero de cuenta y/o NIP incorrecto \n Vuelva a intentar \n");                    
-                } while(obj.Validar(Cuenta, NIP)==false);
+                } while(obj.Validar(Cuenta, PIN)==false);
                 input.nextLine();                
                 input.nextLine();                
                 break;
@@ -85,14 +85,14 @@ entender un poco cómo funciona :)
                     System.out.print("Ingrese el numero Secreto:  ");
                     NIP = input.nextLine();   
 
-                    if (obj.Validar(Cuenta, NIP)) {
+                    if (obj.Validar(Cuenta, PIN)) {
                         System.out.print("Ingrese el monto a retirar: ");
                         int retiro=input.nextInt();
                         obj.Retirar(Cuenta,retiro);                                                  
                     }               
                     else
-                        System.out.print("\nNúmero de cuenta y/o NIP incorrecto \nVuelva a intentarlo \n");                    
-                } while(obj.Validar(Cuenta, NIP)==false);                      
+                        System.out.print("\nNúmero de cuenta y/o PIN incorrecto \nVuelva a intentarlo \n");                    
+                } while(obj.Validar(Cuenta, PIN)==false);                      
                 input.nextLine();                
                 input.nextLine();
                 break;
@@ -104,12 +104,12 @@ entender un poco cómo funciona :)
                 System.out.print("Ingrese el numero Secreto:  ");
                 NIP = input.nextLine();
                 
-                if (obj.Validar(Cuenta, NIP)) {                                  
+                if (obj.Validar(Cuenta, PIN)) {                                  
                     obj.Consultar(Cuenta);
                     input.nextLine();
                 } else
-                    System.out.print("Número de cuenta y/o NIP incorrecto \nVuelva a intentarlo \n");                    
-                }while(obj.Validar(Cuenta, NIP)==false);
+                    System.out.print("Número de cuenta y/o PIN incorrecto \nVuelva a intentarlo \n");                    
+                }while(obj.Validar(Cuenta, PIN)==false);
                 break;
                 
             case 5:                
